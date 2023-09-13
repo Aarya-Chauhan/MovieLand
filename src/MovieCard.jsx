@@ -1,20 +1,22 @@
-import React from "react";
+import React from 'react';
 
-const movieCard = ({movie}) => {
+const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
   return (
-    <div className="movie">
+    <div className="movie" key={imdbID}>
       <div>
-        <p></p>
+        <p>{Year}</p>
       </div>
+
       <div>
-        <img src="" alt="" />
+        <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
       </div>
+
       <div>
-        <span></span>
-        <h3></h3>
+        <span>{Type}</span>
+        <h3>{Title}</h3>
       </div>
     </div>
   );
-};
+}
 
-export default movieCard;
+export default MovieCard;
